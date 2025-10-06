@@ -1,7 +1,9 @@
 "use client"
 
 import { useState } from "react";
-import LoadingScreen from "./components/loadingscreen";
+import LoadingScreen from "@/components/loading/LoadingScreen";
+import LoginButton from "@/components/ui/LoginButton";
+import EmailSignupForm from "@/components/auth/EmailSignupForm";
 
 
 export default function PublicLanding() {
@@ -30,42 +32,19 @@ export default function PublicLanding() {
                             <div className="absolute inset-0 bg-black/75" />
                         </div>
 
-                        {/* Centered Content */}
-                        <div className="relative z-10 flex h-full flex-col items-center justify-center text-center">
-                            {/*
-                              The h1 tag gets base styles from globals.css (font-size, weight, line-height, letter-spacing).
-                              We only need to add responsive overrides for font-size and ensure it's centered.
-                            */}
-                            <div className="w-full max-w-6xl px-6">
-                                <h1 className="text-4xl text-center md:text-6xl lg:text-7xl">
-                                    One platform.
-                                    <br />
-                                    Millions of ways to engage.
-                                </h1>
-                            </div>
-                        </div>
-                    </section>
+                        {/* Bottom Left Content */}
+                        <div className="absolute bottom-[145px] left-[72px] z-9">
+                            <h1 className="text-4xl md:text-6xl lg:text-7xl">
+                                Hackverse
+                                <br />
+                                We ship user's + limited edition item's
+                            </h1>
 
-                    <section className="h-screen bg-white flex items-center justify-center">
-                        <h2 className="text-4xl md:text-6xl font-sans">Hello World</h2>
+                            <EmailSignupForm />
+                        </div>
                     </section>
                 </div>
             )}
-
-            <style jsx>{`
-                @keyframes fadeIn {
-                    from {
-                        opacity: 0;
-                    }
-                    to {
-                        opacity: 1;
-                    }
-                }
-
-                .animate-fadeIn {
-                    animation: fadeIn 0.5s ease-in;
-                }
-            `}</style>
         </main>
     );
 }
