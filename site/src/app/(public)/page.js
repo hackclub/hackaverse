@@ -9,40 +9,48 @@ export default function PublicLanding() {
 
     return (
         <main className="relative">
-            <div className={`absolute inset-0 z-20 pointer-events-none transition-opacity duration-500 ${loadingComplete ? 'opacity-0' : 'opacity-100'}`}>
+            {!loadingComplete && (
                 <LoadingScreen onComplete={() => {
                     setLoadingComplete(true);
                 }} />
-            </div>
-            <section className="relative h-screen overflow-hidden bg-black text-white">
-                    {/* Background Video & Overlay */}
-                    <div className="absolute inset-0 z-0">
-                        <video
-                            autoPlay
-                            loop
-                            muted
-                            playsInline
-                            className="h-full w-full object-cover"
-                            src="https://cdn.buttercms.com/7wYKj7iCQaGwcyosHdyq"
-                        />
-                        <div className="absolute inset-0 bg-black/75" />
-                    </div>
-
-                    {/* Centered Content */}
-                    <div className="relative z-10 flex h-full flex-col items-center justify-center text-center">
-                        {/*
-                          The h1 tag gets base styles from globals.css (font-size, weight, line-height, letter-spacing).
-                          We only need to add responsive overrides for font-size and ensure it's centered.
-                        */}
-                        <div className="w-full max-w-6xl px-6">
-                            <h1 className="text-4xl text-center md:text-6xl lg:text-7xl">
-                                One platform.
-                                <br />
-                                Millions of ways to engage.
-                            </h1>
+            )}
+            {loadingComplete && (
+                <div className="animate-fadeIn">
+                <section className="relative h-screen overflow-hidden bg-black text-white">
+                        {/* Background Video & Overlay */}
+                        <div className="absolute inset-0 z-0">
+                            <video
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
+                                className="h-full w-full object-cover"
+                                src="https://cdn.buttercms.com/7wYKj7iCQaGwcyosHdyq"
+                            />
+                            <div className="absolute inset-0 bg-black/75" />
                         </div>
-                    </div>
-                </section>
+
+                        {/* Centered Content */}
+                        <div className="relative z-10 flex h-full flex-col items-center justify-center text-center">
+                            {/*
+                              The h1 tag gets base styles from globals.css (font-size, weight, line-height, letter-spacing).
+                              We only need to add responsive overrides for font-size and ensure it's centered.
+                            */}
+                            <div className="w-full max-w-6xl px-6">
+                                <h1 className="text-4xl text-center md:text-6xl lg:text-7xl">
+                                    One platform.
+                                    <br />
+                                    Millions of ways to engage.
+                                </h1>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section className="h-screen bg-white flex items-center justify-center">
+                        <h2 className="text-4xl md:text-6xl font-sans">Hello World</h2>
+                    </section>
+                </div>
+            )}
 
             <style jsx>{`
                 @keyframes fadeIn {

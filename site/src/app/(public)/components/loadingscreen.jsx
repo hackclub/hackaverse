@@ -47,10 +47,9 @@ export default function SkeletonLoadingScreen({ onComplete }) {
                     return (
                         <div
                             key={item}
-                            className="opacity-0 animate-fadeIn"
+                            className="opacity-0 logo-animate"
                             style={{
-                                animationDelay: `${diagonalIndex * 0.04}s`,
-                                animationFillMode: 'forwards'
+                                animationDelay: `${diagonalIndex * 0.04}s`
                             }}
                         >
                             {/* Alternating logos */}
@@ -63,27 +62,6 @@ export default function SkeletonLoadingScreen({ onComplete }) {
                     );
                 })}
             </div>
-
-            <style jsx>{`
-                @keyframes fadeIn {
-                    0% {
-                        opacity: 0;
-                        transform: scale(0);
-                    }
-                    50% {
-                        opacity: 0.5;
-                        transform: scale(1.1);
-                    }
-                    100% {
-                        opacity: 1;
-                        transform: scale(1);
-                    }
-                }
-
-                .animate-fadeIn {
-                    animation: fadeIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-                }
-            `}</style>
         </div>
     );
 }
